@@ -1,0 +1,22 @@
+# 📚 Book Store Data Analysis
+
+### 🔹 Internship Project
+
+This project covers:
+1. Web Scraping (BeautifulSoup)
+2. Exploratory Data Analysis (EDA)
+3. Data Visualization (Matplotlib, Seaborn, Plotly)
+4. Insights & Storytelling
+5. Dashboard Presentation
+
+### 🔹 Tools & Libraries
+- Python
+- BeautifulSoup
+- Pandas
+- Matplotlib / Seaborn
+- Plotly
+
+### 🔹 How to Run
+```bash
+pip install pandas matplotlib seaborn plotly beautifulsoup4 requests
+jupyter notebook project.ipynb
