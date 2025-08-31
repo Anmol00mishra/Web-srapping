@@ -1,0 +1,28 @@
+import pandas as pd
+
+# Step 1: URL
+url = "http://books.toscrape.com/catalogue/page-1.html"
+response = requests.get(url)
+
+# Step 2: Parse HTML
+soup = BeautifulSoup(response.text, "html.parser")
+
+# Step 3: Extract Data
+titles = [book.h3.a["title"] for book in soup.find_all("article", class_="product_pod")]
+prices = [book.find("p", class_="price_color").text for book in soup.find_all("article", class_="product_pod")]
+availability = [book.find("p", class_="instock availability").text.strip() for book in soup.find_all("article", class_="product_pod")]
+
+# Step 4: Save in DataFrame
+df = pd.DataFrame({"Title": titles, "Price": prices, "Availability": availability})
+
+# Step 5: Save to CSV
+df.to_csv("books_data.csv", index=False)
+
+print(df.head())
+_____output
+                                 Title    Price Availability
+0                   A Light in the Attic  Â£51.77     In stock
+1                     Tipping the Velvet  Â£53.74     In stock
+2                             Soumission  Â£50.10     In stock
+3                          Sharp Objects  Â£47.82     In stock
+4  Sapiens: A Brief History of Humankind  Â£54.23     In stock
